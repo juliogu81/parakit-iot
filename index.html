@@ -259,18 +259,31 @@
   <div class="section">
     <h2>Resumen</h2>
     <p>
-      La cotorra (<em>Myiopsitta monachus</em>) es una especie invasora que causa pérdidas
-      significativas en cultivos frutícolas del Uruguay. El presente proyecto de fin de carrera
-      desarrolla un prototipo de sistema IoT capaz de detectar la presencia de estas aves
-      mediante el análisis acústico del entorno, con el objetivo de habilitar alertas tempranas
-      que permitan implementar medidas de dispersión oportunas.
+      La presencia de la <em>Myiopsitta monachus</em>, comúnmente llamada cotorra, en cultivos
+      frutales representa un desafío vigente en Uruguay y en varias regiones del mundo donde la
+      especie ha sido introducida. Declarada plaga oficial en Uruguay desde 1947, la especie daña
+      los cultivos frutales al alimentarse de sus frutos, generando pérdidas económicas
+      significativas en la producción agrícola. A partir de una problemática planteada por el
+      Instituto Nacional de Investigación Agropecuaria (INIA), este trabajo presenta el diseño
+      e implementación de <em>ParaKit</em>, un prototipo de sistema de detección y localización
+      de cotorras mediante una red de sensores acústicos inalámbricos, orientado a servir de
+      fase previa a un sistema autónomo de disuasión.
     </p>
     <p>
-      El sistema está compuesto por nodos sensores basados en el microcontrolador ESP32-S3,
-      equipados con micrófonos MEMS y un modelo de clasificación de audio embebido. Los nodos
-      transmiten eventos de detección a través de una red LoRaWAN hacia un servidor central.
-      El modelo de clasificación fue entrenado sobre un conjunto de grabaciones de campo de
-      <em>Myiopsitta monachus</em> recolectadas en Uruguay.
+      <em>ParaKit</em> distribuye nodos sensores a batería por el campo, cada uno capaz de
+      ejecutar de forma autónoma la tarea de clasificación: a partir del espectrograma de las
+      señales de audio captadas, determina si hay presencia de cotorra o no. Para ello se diseñó
+      <em>ParakitCNN</em>, una red neuronal convolucional concebida desde cero para operar
+      dentro de las restricciones de memoria del microcontrolador, con resultados muy auspiciosos
+      en la detección de vocalizaciones de cotorra.
+    </p>
+    <p>
+      Los nodos se comunican mediante LoRaWAN, tecnología inalámbrica de largo alcance, a través
+      de la infraestructura pública The Things Network, con un tiempo total desde la detección
+      hasta la notificación de aproximadamente 5 segundos. El sistema fue desplegado en INIA Las
+      Brujas en una parcela de manzanos, donde se verificó la detección de vocalizaciones de
+      cotorra hasta 24 metros y la comunicación de las detecciones entre nodos sin pérdida de
+      mensajes.
     </p>
   </div>
 
@@ -324,7 +337,7 @@
           </svg>
           Firmware — Nodos ESP32
         </div>
-        <p>Código del firmware: adquisición de audio, filtrado, inferencia del modelo de clasificación y comunicación LoRaWAN.</p>
+        <p>Firmware de los nodos sensores: captura de audio, ejecución de <em>ParakitCNN</em> y comunicación de detecciones vía LoRaWAN a través de The Things Network.</p>
       </a>
       <a class="repo-card" href="https://huggingface.co/datasets/AvesIoT/myiopsitta-monachus-audios" target="_blank">
         <div class="repo-title">
@@ -336,7 +349,7 @@
           </svg>
           Entrenamiento y Dataset
         </div>
-        <p>Grabaciones de campo de <em>Myiopsitta monachus</em> y otras clases de audio, junto con el código de entrenamiento y evaluación del modelo de clasificación.</p>
+        <p>Dataset de audio y código de entrenamiento de <em>ParakitCNN</em>, la red neuronal convolucional diseñada para operar dentro de las restricciones de memoria del microcontrolador.</p>
       </a>
     </div>
   </div>
