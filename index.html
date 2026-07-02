@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parakit IoT</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #f0f4f0;
+      color: #222;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #2d5a27 0%, #4a7c40 40%, #7aab5e 70%, #b5d4a0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.93);
+      border-radius: 12px;
+      padding: 56px 64px;
+      max-width: 820px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    }
+
+    .hero-card h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #1a3a16;
+      margin-bottom: 16px;
+    }
+
+    .hero-card .subtitle {
+      font-size: 1.25rem;
+      font-style: italic;
+      color: #3a5c35;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .hero-card .authors {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .hero-card .tutors {
+      font-size: 0.92rem;
+      color: #777;
+      margin-bottom: 32px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-style: normal;
+      transition: opacity 0.2s;
+      border: 1.5px solid #ccc;
+      color: #222;
+      background: #fff;
+    }
+
+    .btn:hover { opacity: 0.75; }
+
+    .btn svg { flex-shrink: 0; }
+
+    /* ── SECTIONS ── */
+    .section {
+      max-width: 820px;
+      margin: 0 auto 40px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 48px 56px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+
+    .section h2 {
+      font-size: 1.4rem;
+      color: #1a3a16;
+      margin-bottom: 16px;
+      border-bottom: 2px solid #7aab5e;
+      padding-bottom: 8px;
+    }
+
+    .section p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #333;
+      text-align: justify;
+    }
+
+    .section p + p { margin-top: 12px; }
+
+    .sistema-img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 24px;
+      border: 1px solid #e0e8d8;
+    }
+
+    .img-caption {
+      text-align: center;
+      font-size: 0.88rem;
+      color: #777;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── REPOS ── */
+    .repo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .repo-grid { grid-template-columns: 1fr; }
+      .hero-card { padding: 36px 24px; }
+      .section { padding: 32px 24px; }
+    }
+
+    .repo-card {
+      border: 1.5px solid #c8dcc2;
+      border-radius: 8px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .repo-card:hover {
+      border-color: #4a7c40;
+      box-shadow: 0 2px 12px rgba(74,124,64,0.15);
+    }
+
+    .repo-card .repo-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a3a16;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .repo-card p {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    .spacer { height: 48px; }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-card">
+      <h1>Parakit IoT</h1>
+      <p class="subtitle">
+        Prototipo de un sistema de detección de aves en cultivos<br>
+        basado en una red de sensores acústicos
+      </p>
+      <p class="authors">Julio Gu &nbsp;·&nbsp; Bruno Lercari &nbsp;·&nbsp; Martín Núñez &nbsp;·&nbsp; Ernesto Rován</p>
+      <p class="tutors">Tutores: Facundo Benavides y Pablo Monzón &nbsp;—&nbsp; FIng, UdelaR</p>
+      <div class="btn-group">
+        <a class="btn" href="https://github.com/jmartin166/esp-32" target="_blank">
+          <!-- GitHub icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577
+              0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07
+              3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838
+              1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93
+              0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322
+              3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552
+              3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91
+              1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22
+              0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565
+              21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          Firmware ESP32
+        </a>
+        <a class="btn" href="https://huggingface.co/datasets/AvesIoT/myiopsitta-monachus-audios" target="_blank">
+          <!-- HuggingFace icon (simplified) -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+            <circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/>
+            <circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          Dataset de Audio
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="section">
+    <h2>Resumen</h2>
+    <p>
+      La cotorra (<em>Myiopsitta monachus</em>) es una especie invasora que causa pérdidas
+      significativas en cultivos frutícolas del Uruguay. El presente proyecto de fin de carrera
+      desarrolla un prototipo de sistema IoT capaz de detectar la presencia de estas aves
+      mediante el análisis acústico del entorno, con el objetivo de habilitar alertas tempranas
+      que permitan implementar medidas de dispersión oportunas.
+    </p>
+    <p>
+      El sistema está compuesto por nodos sensores basados en el microcontrolador ESP32-S3,
+      equipados con micrófonos MEMS y un modelo de clasificación de audio embebido. Los nodos
+      transmiten eventos de detección a través de una red LoRaWAN hacia un servidor central.
+      El modelo de clasificación fue entrenado sobre un conjunto de grabaciones de campo de
+      <em>Myiopsitta monachus</em> recolectadas en Uruguay.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Arquitectura del Sistema</h2>
+    <p>
+      Cada nodo sensor se instala en los postes o árboles que delimitan el cultivo. El nodo
+      adquiere audio de forma continua, aplica un detector de actividad de voz (VAD) y, ante
+      la presencia de sonido, ejecuta el modelo de clasificación localmente. Las detecciones
+      positivas se envían por LoRaWAN a un gateway conectado a Internet.
+    </p>
+    <img class="sistema-img" src="sistema.jpeg" alt="Diagrama conceptual del sistema Parakit IoT: nodos sensores en el cultivo transmitiendo a un gateway" />
+    <p class="img-caption">Diagrama conceptual del sistema: nodos sensores distribuidos en el cultivo y gateway de comunicación.</p>
+  </div>
+
+  <div class="section">
+    <h2>Repositorios</h2>
+    <div class="repo-grid">
+      <a class="repo-card" href="https://github.com/jmartin166/esp-32" target="_blank">
+        <div class="repo-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577
+              0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07
+              3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838
+              1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93
+              0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322
+              3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552
+              3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91
+              1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22
+              0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565
+              21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          Firmware — Nodos ESP32
+        </div>
+        <p>Código del firmware: adquisición de audio, filtrado, inferencia del modelo de clasificación y comunicación LoRaWAN.</p>
+      </a>
+      <a class="repo-card" href="https://huggingface.co/datasets/AvesIoT/myiopsitta-monachus-audios" target="_blank">
+        <div class="repo-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+            <circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/>
+            <circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          Dataset — Audios de Cotorra
+        </div>
+        <p>Grabaciones de campo de <em>Myiopsitta monachus</em> y otras clases de audio para entrenamiento y evaluación del modelo.</p>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    Proyecto de Fin de Carrera &nbsp;·&nbsp; Facultad de Ingeniería, UdelaR &nbsp;·&nbsp; 2025
+  </footer>
+
+</body>
+</html>
