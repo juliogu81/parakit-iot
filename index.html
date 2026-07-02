@@ -130,6 +130,31 @@
       font-style: italic;
     }
 
+    /* ── AUDIOS ── */
+    .audio-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .audio-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .audio-label {
+      font-size: 0.9rem;
+      color: #555;
+      min-width: 48px;
+    }
+
+    audio {
+      flex: 1;
+      height: 36px;
+    }
+
     /* ── REPOS ── */
     .repo-grid {
       display: grid;
@@ -259,6 +284,36 @@
     </p>
     <img class="sistema-img" src="sistema.jpeg" alt="Diagrama conceptual del sistema Parakit IoT: nodos sensores en el cultivo transmitiendo a un gateway" />
     <p class="img-caption">Diagrama conceptual del sistema: nodos sensores distribuidos en el cultivo y gateway de comunicación.</p>
+  </div>
+
+  <div class="section">
+    <h2>Ejemplos de Audio — <em>Myiopsitta monachus</em></h2>
+    <p>
+      Los siguientes clips fueron grabados en campo durante diciembre de 2025 y forman parte
+      del conjunto de datos de entrenamiento del modelo de clasificación.
+    </p>
+    <div class="audio-grid">
+      <div class="audio-item">
+        <span class="audio-label">Clip 1</span>
+        <audio controls src="audio/20251217_112000_clip007.wav"></audio>
+      </div>
+      <div class="audio-item">
+        <span class="audio-label">Clip 2</span>
+        <audio controls src="audio/20251217_130000_clip002.wav"></audio>
+      </div>
+      <div class="audio-item">
+        <span class="audio-label">Clip 3</span>
+        <audio controls src="audio/20251217_131500_clip013.wav"></audio>
+      </div>
+      <div class="audio-item">
+        <span class="audio-label">Clip 4</span>
+        <audio controls src="audio/20251217_164500_clip008.wav"></audio>
+      </div>
+      <div class="audio-item">
+        <span class="audio-label">Clip 5</span>
+        <audio controls src="audio/20251217_170000_clip001.wav"></audio>
+      </div>
+    </div>
   </div>
 
   <div class="section">
